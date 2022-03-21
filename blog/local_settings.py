@@ -6,7 +6,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders'
+    'corsheaders',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -55,3 +56,4 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
+

@@ -1,4 +1,4 @@
-"""day01 URL Configuration
+"""blog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -13,12 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-
-from day01 import views
-
+from . import views
+from user import views as user_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test_cors/',views.test_cors),
+    path('v1/users',user_views.UserViews.as_view())
+
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
